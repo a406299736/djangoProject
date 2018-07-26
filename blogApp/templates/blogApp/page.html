@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blogApp/css/style.css' %}">
+    <title>Page</title>
+</head>
+<body>
+{% if content %}
+    <ul>
+        {% for q in content %}
+            <li>
+                {{ forloop.counter }} <a href="{% url 'blog:detail' q.id %}">{{ q.question_text }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No dates</p>
+{% endif %}
+</body>
+</html>
